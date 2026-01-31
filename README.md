@@ -2,18 +2,34 @@
 
 This script migrates your notes from Apple Notes to Google Keep.
 
+## Quick Start (Recommended)
+
+Run directly from GitHub using `uvx` (no cloning required):
+
+```bash
+uvx --from git+https://github.com/kenotron/migrate-apple-notes migrate
+```
+
+That's it! The tool will run immediately and guide you through the migration.
+
 ## Prerequisites
 
-1. **Python 3.12+** installed on your Mac
-2. **uv** package manager ([install here](https://github.com/astral-sh/uv))
+1. **macOS** (to access Apple Notes database)
+2. **Python 3.12+** and **uv** package manager ([install here](https://github.com/astral-sh/uv))
 3. **Apple Notes** with notes you want to migrate
 4. **Google Account** for Google Keep
 
-## Setup
+## Local Development
 
-This project uses `uv` for fast dependency management. Everything is already configured!
+If you want to clone and run locally:
 
-### 2. Google Account Setup
+```bash
+git clone https://github.com/kenotron/migrate-apple-notes.git
+cd notes
+uv run main.py
+```
+
+## Google Account Setup
 
 If you have 2-factor authentication enabled (recommended), you'll need to create an App Password:
 
