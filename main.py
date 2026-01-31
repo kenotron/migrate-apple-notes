@@ -31,7 +31,23 @@ def extract_apple_notes():
         return []
 
     # Connect to the database
-    conn = sqlite3.connect(notes_db)
+    try:
+        conn = sqlite3.connect(notes_db)
+    except sqlite3.OperationalError:
+        print("\n" + "="*60)
+        print("ERROR: Permission Denied")
+        print("="*60)
+        print("\nThis app needs Full Disk Access permission to read Apple Notes.")
+        print("\nTo grant permission:")
+        print("1. Open System Settings (System Preferences on older macOS)")
+        print("2. Go to Privacy & Security → Full Disk Access")
+        print("3. Click the '+' button")
+        print("4. Add your Terminal app (Terminal.app or iTerm.app)")
+        print("5. Restart your terminal and try again")
+        print("\nAlternatively, you can run this from Terminal.app if you're")
+        print("using a different terminal emulator.")
+        print("="*60 + "\n")
+        return []
     cursor = conn.cursor()
 
     # Query to get notes with their content

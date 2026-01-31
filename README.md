@@ -18,6 +18,7 @@ That's it! The tool will run immediately and guide you through the migration.
 2. **Python 3.12+** and **uv** package manager ([install here](https://github.com/astral-sh/uv))
 3. **Apple Notes** with notes you want to migrate
 4. **Google Account** for Google Keep
+5. **Full Disk Access** permission for your Terminal app (see instructions below)
 
 ## Local Development
 
@@ -29,7 +30,22 @@ cd notes
 uv run main.py
 ```
 
-## Google Account Setup
+## Setup Instructions
+
+### 1. Grant Full Disk Access (Required)
+
+Your Terminal needs permission to read the Apple Notes database:
+
+1. Open **System Settings** (or System Preferences on older macOS)
+2. Go to **Privacy & Security** → **Full Disk Access**
+3. Click the **+** button
+4. Add your Terminal app:
+   - **Terminal.app** (default macOS terminal), or
+   - **iTerm.app** (if using iTerm2), or
+   - Your terminal emulator of choice
+5. **Restart your terminal** after granting permission
+
+### 2. Google Account Setup
 
 If you have 2-factor authentication enabled (recommended), you'll need to create an App Password:
 
@@ -76,6 +92,11 @@ apple_notes_backup_YYYYMMDD_HHMMSS.json
 Keep this file safe in case you need to reference the original data.
 
 ## Troubleshooting
+
+### "Permission Denied" or "unable to open database file"
+- Your Terminal needs Full Disk Access permission (see Setup Instructions above)
+- After granting permission, **restart your terminal completely**
+- If still having issues, try using the default Terminal.app instead of other terminal emulators
 
 ### "Apple Notes database not found"
 - Make sure you're running this on macOS
